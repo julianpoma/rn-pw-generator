@@ -26,7 +26,7 @@ module.exports = {
     'sort-imports': [
       'error',
       {
-        memberSyntaxSortOrder: ['none', 'all', 'single', 'multiple'],
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
       },
     ],
     'no-shadow': 1,
