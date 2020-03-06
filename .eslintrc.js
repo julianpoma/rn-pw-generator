@@ -11,6 +11,11 @@ module.exports = {
       jsx: true,
     },
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   plugins: ['react', 'react-native'],
   env: {
     es6: true,
