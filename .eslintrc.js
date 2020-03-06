@@ -1,0 +1,41 @@
+module.exports = {
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react-native/all',
+  ],
+  parserOptions: {
+    ecmaVersion: 2016,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  plugins: ['react', 'react-native'],
+  env: {
+    es6: true,
+    node: true,
+    'react-native/react-native': true,
+  },
+  rules: {
+    'sort-imports': [
+      'error',
+      {
+        memberSyntaxSortOrder: ['none', 'all', 'single', 'multiple'],
+      },
+    ],
+    'no-shadow': 1,
+    'no-param-reassign': 1,
+    'no-console': ['warn'],
+    'react/prop-types': 0,
+    'react/destructuring-assignment': ['warn'],
+    'react-native/no-color-literals': 0,
+    'sort-keys': [
+      'error',
+      'asc',
+      { caseSensitive: true, natural: false, minKeys: 2 },
+    ],
+    quotes: ['error', 'single', { avoidEscape: true }],
+    'jsx-quotes': ['error', 'prefer-double'],
+  },
+};
