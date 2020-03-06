@@ -3,13 +3,11 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const Greetings = ({ name }) => <Text>Greetings {name}</Text>;
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Greetings name="Julian"></Greetings>
-    </View>
-  );
-}
+const App = () => (
+  <View style={styles.container}>
+    <Greetings name="Julian"></Greetings>
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -19,3 +17,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
