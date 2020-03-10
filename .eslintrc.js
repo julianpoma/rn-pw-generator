@@ -5,7 +5,7 @@ module.exports = {
     'plugin:react-native/all',
   ],
   parserOptions: {
-    ecmaVersion: 2016,
+    ecmaVersion: 8,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
