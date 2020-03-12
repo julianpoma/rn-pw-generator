@@ -5,8 +5,7 @@ import SuggestedPassword from '../components/SuggestedPassword';
 import colors from '../config/colors';
 
 const Main = () => {
-  const password =
-    '&SUNpOLdgzooU@Q3&DM!';
+  const password = '&SUNpOLdgzooU@Q3&DM!&SUNpOLdgzooU@Q3&DM!&SUNpOLdgzooU@Q3&DM!&SUNpOLdgzooU@Q3&DM!';
 
   return (
     <Container>
