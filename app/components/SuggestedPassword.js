@@ -1,12 +1,17 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import colors from '../config/colors';
+import { generatePassword } from '../services/password-generator';
 
-const SuggestedPassword = ({ password }) => (
-  <View style={styles.box}>
-    <Text style={styles.password}>{password}</Text>
-  </View>
-);
+const SuggestedPassword = ({ length, upperCase }) => {
+  const password = generatePassword(length, upperCase);
+
+  return (
+    <View style={styles.box}>
+      <Text style={styles.password}>{password}</Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   box: {
@@ -17,7 +22,7 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   password: {
-    color: '#efefef',
+    color: colors.lightGrey,
     flexShrink: 1,
     fontSize: 26,
     textAlign: 'center',

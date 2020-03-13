@@ -13,6 +13,7 @@ const PrimaryButton = ({ action, text }) => {
 const styles = StyleSheet.create({
   text: {
     color: colors.lightGrey,
+    fontSize: 16,
     paddingHorizontal: 10,
     paddingVertical: 10,
     textAlign: 'center',
