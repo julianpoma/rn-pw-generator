@@ -19,7 +19,7 @@ const Main = () => {
       <SuggestedPassword password={password}></SuggestedPassword>
 
       <PrimaryButton
-        action={() => Alert('Copied!')}
+        action={() => Alert.alert('Copied!')}
         text="Copy to clipboard"
       ></PrimaryButton>
     </Container>
