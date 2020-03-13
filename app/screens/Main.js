@@ -1,11 +1,13 @@
 import Container from '../components/Container';
+import CopyToClipboardButton from '../components/CopyToClipboardButton';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import SuggestedPassword from '../components/SuggestedPassword';
 import colors from '../config/colors';
+import { generatePassword } from '../services/password-generator';
 
 const Main = () => {
-  const password = '&SUNpOLdgzooU@Q3&DM!&SUNpOLdgzooU@Q3&DM!&SUNpOLdgzooU@Q3&DM!&SUNpOLdgzooU@Q3&DM!';
+  const password = generatePassword();
 
   return (
     <Container>
@@ -15,6 +17,8 @@ const Main = () => {
         backgroundColor={colors.statusBarColor}
       />
       <SuggestedPassword password={password}></SuggestedPassword>
+
+      <CopyToClipboardButton></CopyToClipboardButton>
     </Container>
   );
 };

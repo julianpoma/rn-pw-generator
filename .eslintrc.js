@@ -32,7 +32,7 @@ module.exports = {
     'no-shadow': 1,
     'no-param-reassign': 1,
     'no-console': 1,
-    'implicit-arrow-linebreak': ['error', 'beside'],
+    'implicit-arrow-linebreak': 0,
     'prefer-arrow-callback': 2,
     'react/prop-types': 0,
     'react/destructuring-assignment': ['warn'],

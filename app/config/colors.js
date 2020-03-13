@@ -1,4 +1,5 @@
 export default {
-  primaryColor: '#0e2b35',
+  background: '#1a2429',
+  primary: '#6233dc',
   statusBarColor: '#0a2028',
 };

@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import colors from '../config/colors';
 
 const SuggestedPassword = ({ password }) => (
   <View style={styles.box}>
@@ -9,11 +10,11 @@ const SuggestedPassword = ({ password }) => (
 
 const styles = StyleSheet.create({
   box: {
-    borderColor: '#fff',
+    borderColor: colors.primary,
+    borderRadius: 10,
     borderWidth: 2,
-    flexDirection: 'row',
-    margin: 20,
     padding: 15,
+    width: '90%',
   },
   password: {
     color: '#efefef',
