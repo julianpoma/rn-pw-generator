@@ -40,12 +40,14 @@ const getRandomChar = dictionary => {
  */
 const fisherYatesShuffle = dictionary => {
   const a = [...dictionary];
+  let j,
+    temp = null;
 
   for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const x = a[i];
+    j = Math.floor(Math.random() * (i + 1));
+    temp = a[i];
     a[i] = a[j];
-    a[j] = x;
+    a[j] = temp;
   }
 
   return a;
