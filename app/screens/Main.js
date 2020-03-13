@@ -1,7 +1,7 @@
+import { Alert, StatusBar } from 'react-native';
 import Container from '../components/Container';
-import CopyToClipboardButton from '../components/CopyToClipboardButton';
+import PrimaryButton from '../components/PrimaryButton';
 import React from 'react';
-import { StatusBar } from 'react-native';
 import SuggestedPassword from '../components/SuggestedPassword';
 import colors from '../config/colors';
 import { generatePassword } from '../services/password-generator';
@@ -18,7 +18,10 @@ const Main = () => {
       />
       <SuggestedPassword password={password}></SuggestedPassword>
 
-      <CopyToClipboardButton></CopyToClipboardButton>
+      <PrimaryButton
+        action={() => Alert('Copied!')}
+        text="Copy to clipboard"
+      ></PrimaryButton>
     </Container>
   );
 };

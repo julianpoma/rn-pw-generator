@@ -4,7 +4,7 @@ const upperCaseCharSet = lowerCaseCharSet.toUpperCase();
 const symbolsCharSet = "!@#$%^&*()_+=[]'/-<>.,`";
 
 export const generatePassword = (
-  length = 16,
+  length = 8,
   withUpperCase = false,
   withNumbers = false,
   withSymbols = false,
