@@ -1,7 +1,9 @@
-const numbersSet = '0123456789';
-const lowerCaseCharSet = 'abcdefghijklmnopqrstuvwxyz';
-const upperCaseCharSet = lowerCaseCharSet.toUpperCase();
-const symbolsCharSet = "!@#$%^&*()_+=[]'/-<>.,`";
+import {
+  lowerCaseCharSet,
+  numbersSet,
+  symbolsCharSet,
+  upperCaseCharSet,
+} from './char-sets';
 
 export const generatePassword = (
   length = 8,
