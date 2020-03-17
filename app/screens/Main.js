@@ -1,17 +1,30 @@
 import { Alert, Slider, StatusBar, StyleSheet, View } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../components/Buttons';
 import Container from '../components/Container';
 import SuggestedPassword from '../components/SuggestedPassword';
 import SwitchOption from '../components/SwitchOption';
 import colors from '../config/colors';
+import { generatePassword } from '../services/password-generator';
 
 const Main = () => {
-  const [forceRefresh, setForceRefrest] = useState(false);
+  const [password, setPassword] = useState();
+
   const [passwordLength, setPasswordLength] = useState(8);
   const [withUpperCase, setWithUpperCase] = useState(false);
   const [withNumbers, setwithNumbers] = useState(false);
   const [withSpecialChars, setwithSpecialChars] = useState(false);
+
+  useEffect(() => {
+    setPassword(
+      generatePassword(
+        passwordLength,
+        withUpperCase,
+        withNumbers,
+        withSpecialChars,
+      ),
+    );
+  }, [passwordLength, withUpperCase, withNumbers, withSpecialChars]);
 
   return (
     <Container>
@@ -21,13 +34,7 @@ const Main = () => {
         backgroundColor={colors.statusBarColor}
       />
 
-      <SuggestedPassword
-        length={passwordLength}
-        upperCase={withUpperCase}
-        numbers={withNumbers}
-        special={withSpecialChars}
-        refresh={forceRefresh}
-      ></SuggestedPassword>
+      <SuggestedPassword password={password}></SuggestedPassword>
 
       <Slider
         style={styles.slider}
@@ -42,7 +49,7 @@ const Main = () => {
         onValueChange={value => setPasswordLength(value)}
       />
 
-      <View style={{ justifyContent: 'flex-start' }}>
+      <View style={styles.switchGroup}>
         <SwitchOption
           label="Upper case"
           onChange={value => setWithUpperCase(value)}
@@ -62,12 +69,19 @@ const Main = () => {
         ></SwitchOption>
       </View>
 
-      <View
-        style={{ marginTop: 20, flexDirection: 'row', justifyContent: 'center' }}
-      >
+      <View style={styles.buttonGroup}>
         <Button.Secondary
-          action={() => setForceRefrest(!forceRefresh)}
-          text="Reset"
+          action={() =>
+            setPassword(
+              generatePassword(
+                passwordLength,
+                withUpperCase,
+                withNumbers,
+                withSpecialChars,
+              ),
+            )
+          }
+          text="Refresh"
         ></Button.Secondary>
 
         <Button.Primary
@@ -80,11 +94,17 @@ const Main = () => {
 };
 
 const styles = StyleSheet.create({
+  buttonGroup: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 20,
+  },
   slider: {
     height: 50,
     marginVertical: 10,
     width: '75%',
   },
+  switchGroup: { justifyContent: 'flex-start' },
 });
 
 export default Main;
