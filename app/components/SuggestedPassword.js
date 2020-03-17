@@ -3,8 +3,9 @@ import React from 'react';
 import colors from '../config/colors';
 import { generatePassword } from '../services/password-generator';
 
-const SuggestedPassword = ({ length, upperCase }) => {
-  const password = generatePassword(length, upperCase);
+// eslint-disable-next-line no-unused-vars
+const SuggestedPassword = ({ length, upperCase, numbers, special, refresh }) => {
+  const password = generatePassword(length, upperCase, numbers, special);
 
   return (
     <View style={styles.box}>

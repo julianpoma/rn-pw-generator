@@ -1,21 +1,17 @@
-import {
-  Alert,
-  StatusBar,
-  Slider,
-  StyleSheet,
-  Text,
-  View,
-  Switch,
-} from 'react-native';
-import Container from '../components/Container';
-import PrimaryButton from '../components/PrimaryButton';
+import { Alert, Slider, StatusBar, StyleSheet, View } from 'react-native';
 import React, { useState } from 'react';
+import Button from '../components/Buttons';
+import Container from '../components/Container';
 import SuggestedPassword from '../components/SuggestedPassword';
+import SwitchOption from '../components/SwitchOption';
 import colors from '../config/colors';
 
 const Main = () => {
+  const [forceRefresh, setForceRefrest] = useState(false);
   const [passwordLength, setPasswordLength] = useState(8);
   const [withUpperCase, setWithUpperCase] = useState(false);
+  const [withNumbers, setwithNumbers] = useState(false);
+  const [withSpecialChars, setwithSpecialChars] = useState(false);
 
   return (
     <Container>
@@ -28,6 +24,9 @@ const Main = () => {
       <SuggestedPassword
         length={passwordLength}
         upperCase={withUpperCase}
+        numbers={withNumbers}
+        special={withSpecialChars}
+        refresh={forceRefresh}
       ></SuggestedPassword>
 
       <Slider
@@ -35,7 +34,7 @@ const Main = () => {
         minimumValue={8}
         maximumValue={64}
         value={passwordLength}
-        maximumTrackTintColor="transparent"
+        maximumTrackTintColor={colors.primaryOff}
         minimumTrackTintColor={colors.primary}
         thumbTintColor={colors.lightGrey}
         step={1}
@@ -43,26 +42,39 @@ const Main = () => {
         onValueChange={value => setPasswordLength(value)}
       />
 
-      <View style={{ alignItems: 'center', flexDirection: 'row' }}>
-        <Switch
-          ios_backgroundColor={colors.statusBarColor}
-          onValueChange={value => setWithUpperCase(value)}
-          thumbColor={colors.primary}
-          trackColor={{
-            false: colors.statusBarColor,
-            true: colors.primaryDark,
-          }}
+      <View style={{ justifyContent: 'flex-start' }}>
+        <SwitchOption
+          label="Upper case"
+          onChange={value => setWithUpperCase(value)}
           value={withUpperCase}
-        ></Switch>
-        <Text style={{ color: colors.lightGrey, fontSize: 16, marginLeft: 5 }}>
-          Upper case
-        </Text>
+        ></SwitchOption>
+
+        <SwitchOption
+          label="Numbers"
+          onChange={value => setwithNumbers(value)}
+          value={withNumbers}
+        ></SwitchOption>
+
+        <SwitchOption
+          label="Special characters"
+          onChange={value => setwithSpecialChars(value)}
+          value={withSpecialChars}
+        ></SwitchOption>
       </View>
 
-      <PrimaryButton
-        action={() => Alert.alert('Copied!')}
-        text="Copy to clipboard"
-      ></PrimaryButton>
+      <View
+        style={{ marginTop: 20, flexDirection: 'row', justifyContent: 'center' }}
+      >
+        <Button.Secondary
+          action={() => setForceRefrest(!forceRefresh)}
+          text="Reset"
+        ></Button.Secondary>
+
+        <Button.Primary
+          action={() => Alert.alert('Copied!')}
+          text="Copy to clipboard"
+        ></Button.Primary>
+      </View>
     </Container>
   );
 };
@@ -70,7 +82,7 @@ const Main = () => {
 const styles = StyleSheet.create({
   slider: {
     height: 50,
-    marginVertical: 20,
+    marginVertical: 10,
     width: '75%',
   },
 });
