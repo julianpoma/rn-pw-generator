@@ -1,39 +1,14 @@
-## Base `.eslint` configuration
+# React Native Password Generator
+A demo password generator app for Android and iOS made with React Native (Expo)
 
-```json
-// https://github.com/kelset/react-native-random-recipe-1/blob/master/.eslintrc.js
+Generate a password between 8 and 64 characters long and check how strong is it (entropy)
 
-{
-  "name": "RecipeNumberOne",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
-  },
-  "dependencies": {
-    "eslint-plugin-react-native": "^2.3.2",
-    "react": "16.0.0-alpha.6",
-    "react-native": "0.44.0"
-  },
-  "devDependencies": {
-    "babel-eslint": "^7.2.1",
-    "babel-jest": "20.0.3",
-    "babel-preset-react-native": "1.9.2",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^15.0.1",
-    "eslint-config-prettier": "^2.1.1",
-    "eslint-plugin-flowtype": "^2.33.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^5.0.3",
-    "eslint-plugin-prettier": "^2.1.1",
-    "eslint-plugin-react": "^7.0.1",
-    "jest": "20.0.3",
-    "prettier": "^1.3.1",
-    "react-test-renderer": "16.0.0-alpha.6"
-  },
-  "jest": {
-    "preset": "react-native"
-  }
-}
-```
+## Pictures
+
+![Password Generator](https://github.com/julianpoma/rn-pw-generator/blob/master/screen-2.jpg)
+
+![Password Generator](https://github.com/julianpoma/rn-pw-generator/blob/master/screen-1.jpg)
+
+![Password Generator](https://github.com/julianpoma/rn-pw-generator/blob/master/screen-3.jpg)
+
+

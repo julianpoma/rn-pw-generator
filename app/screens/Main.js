@@ -1,10 +1,10 @@
 import {
   Alert,
+  Clipboard,
   Slider,
   StatusBar,
   StyleSheet,
   View,
-  Clipboard,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Button from '../components/Buttons';
