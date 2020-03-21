@@ -1,4 +1,4 @@
-import { Alert, Slider, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { Alert, Slider, StatusBar, StyleSheet, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Button from '../components/Buttons';
 import Container from '../components/Container';
