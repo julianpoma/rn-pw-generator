@@ -5,7 +5,7 @@ Generate a password between 8 and 64 characters long and check how strong is it 
 
 ## Pictures
 
-![Password Generator](https://github.com/julianpoma/rn-pw-generator/blob/master/screen-2.png)
+<img src="https://github.com/julianpoma/rn-pw-generator/blob/master/screen-2.png" height=400>
 
 ![Password Generator](https://github.com/julianpoma/rn-pw-generator/blob/master/screen-1.png)
 
