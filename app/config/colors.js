@@ -1,6 +1,5 @@
 export default {
   background: '#1a2429',
-  // background: '#2A4365',
   lightGrey: '#F7FAFC',
   primary: '#4C51BF',
   primaryDark: '#311a6d',

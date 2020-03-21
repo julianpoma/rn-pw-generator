@@ -4,6 +4,7 @@ import {
   symbolsCharSet,
   upperCaseCharSet,
 } from './char-sets';
+import { calculateEntropy } from './entropy';
 
 export const generatePassword = (
   length = 8,
@@ -29,7 +30,15 @@ export const generatePassword = (
     getRandomChar(fisherYatesShuffle(dictionary)),
   );
 
-  return password.join('');
+  return {
+    ...calculateEntropy(
+      password.length,
+      withUpperCase,
+      withNumbers,
+      withSymbols,
+    ),
+    password: password.join(''),
+  };
 };
 
 const getRandomChar = dictionary => {

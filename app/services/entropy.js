@@ -27,27 +27,30 @@ export const calculateEntropy = (
 
   const bits = Math.floor(Math.log2(Math.pow(charsetPoolSize, length)));
 
-  let label = 'Very Weak';
+  let label = 'very weak';
+  let color = '#C53030';
 
   switch (true) {
     case bits >= 256:
-      label = 'Very Strong!';
+      label = 'very strong';
+      color = '#22543D';
       break;
 
     case bits >= 128:
-      label = 'Strong!';
+      label = 'strong';
+      color = '#2F855A';
       break;
 
     case bits >= 60:
-      label = 'Fair';
+      label = 'fair';
+      color = '#48BB78'
       break;
 
     case bits >= 36:
-      label = 'Weak';
+      label = 'weak';
+      color = '#F6E05E';
       break;
   }
 
-  console.log(bits, label);
-
-  return { bits, label };
+  return { color, bits, label };
 };

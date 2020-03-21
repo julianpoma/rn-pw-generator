@@ -4,13 +4,11 @@ import Button from '../components/Buttons';
 import Container from '../components/Container';
 import SuggestedPassword from '../components/SuggestedPassword';
 import SwitchOption from '../components/SwitchOption';
-import { calculateEntropy } from '../services/entropy';
 import colors from '../config/colors';
 import { generatePassword } from '../services/password-generator';
 
 const Main = () => {
-  const [password, setPassword] = useState();
-  const [entropy, setEntropy] = useState([]);
+  const [password, setPassword] = useState({});
 
   const [passwordLength, setPasswordLength] = useState(8);
   const [withUpperCase, setWithUpperCase] = useState(false);
@@ -26,16 +24,6 @@ const Main = () => {
         withSpecialChars,
       ),
     );
-
-    setEntropy([
-      ...entropy,
-      calculateEntropy(
-        passwordLength,
-        withUpperCase,
-        withNumbers,
-        withSpecialChars,
-      ),
-    ]);
   }, [passwordLength, withUpperCase, withNumbers, withSpecialChars]);
 
   return (
@@ -47,8 +35,6 @@ const Main = () => {
       />
 
       <SuggestedPassword password={password}></SuggestedPassword>
-
-      <Text style={{ color: '#eee' }}>{entropy.label}</Text>
 
       <Slider
         style={styles.slider}
