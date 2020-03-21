@@ -1,4 +1,11 @@
-import { Alert, Slider, StatusBar, StyleSheet, View } from 'react-native';
+import {
+  Alert,
+  Slider,
+  StatusBar,
+  StyleSheet,
+  View,
+  Clipboard,
+} from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Button from '../components/Buttons';
 import Container from '../components/Container';
@@ -85,7 +92,10 @@ const Main = () => {
         ></Button.Secondary>
 
         <Button.Primary
-          action={() => Alert.alert('Copied!')}
+          action={async () => {
+            await Clipboard.setString(password.password);
+            Alert.alert('Copied!');
+          }}
           text="Copy to clipboard"
         ></Button.Primary>
       </View>
